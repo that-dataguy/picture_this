@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shirt Inventory</title>
+</head>
+<body>
+    <h1>Shirt Inventory</h1>
+    <table>
+        <tr>
+            <th>Size</th>
+            <th>Color</th>
+            <th>Quantity</th>
+        </tr>
+        {% for shirt in shirts %}
+        <tr>
+            <td>{{ shirt.size }}</td>
+            <td>{{ shirt.color }}</td>
+            <td>{{ shirt.quantity }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <h2>Add Inventory</h2>
+    <form method="POST" action="{% url 'add_inventory' %}">
+        {% csrf_token %}
+        <label for="size">Size:</label>
+        <input type="text" name
